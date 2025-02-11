@@ -1,4 +1,7 @@
-package com.betravelish.service;
+package com.betravelish.service; // ✅ Correct placement
+
+import java.util.List; // ✅ Now correctly placed after package declaration
+import java.util.Optional;
 
 import com.betravelish.model.Trek;
 import com.betravelish.repository.TrekRepository;
@@ -7,8 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class TrekService {
 
@@ -16,8 +17,8 @@ public class TrekService {
     private TrekRepository trekRepository;
 
     // ✅ Fix: Accept Pageable for pagination
-    public Page<Trek> getAllTreks(Pageable pageable) {
-        return trekRepository.findAll(pageable);
+    public List<Trek> getAllTreks() {
+        return trekRepository.findAll();
     }
 
     public Optional<Trek> getTrekById(Long id) {

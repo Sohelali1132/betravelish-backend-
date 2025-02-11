@@ -22,9 +22,10 @@ public class TrekController {
 
     // Get all treks (Paginated)
     @GetMapping
-    public Page<Trek> getAllTreks(Pageable pageable) {
-        return trekService.getAllTreks(pageable);
+    public List<Trek> getAllTreks() {
+        return trekService.getAllTreks();
     }
+    
 
     // Get trek by ID
     @GetMapping("/{id}")
